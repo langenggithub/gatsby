@@ -160,4 +160,4 @@ export default function BlogPost({ comments }) {
  */
 export const Head = () => <Seo title="Home" />;
 
-export default IndexPage;
+export IndexPage;
