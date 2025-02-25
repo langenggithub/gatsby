@@ -5,6 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
+import React from "react";
 
 const links = [
   {
@@ -118,11 +119,45 @@ const IndexPage = () => (
   </Layout>
 )
 
+export async function getStaticProps() {
+  // 拉取 Netlify Function 提供的評論 API
+  const res = await fetch("https://clever-pavlova-ab2fe7.netlify.app/.netlify/functions/get-comments");
+  const comments = await res.json();
+
+  return {
+    props: { comments }
+  };
+}
+
+export default function BlogPost({ comments }) {
+  return (
+    <div>
+      <h1>文章標題</h1>
+      <p>這是一篇部落格文章。</p>
+
+      <h2>評論區</h2>
+      {comments.length > 0 ? (
+        <ul>
+          {comments.map((comment, index) => (
+            <li key={index}>
+              <strong>{comment.name}</strong> ({new Date(comment.created_at).toLocaleDateString()}):<br />
+              {comment.message}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>還沒有評論，成為第一個留言的人吧！</p>
+      )}
+    </div>
+  );
+}
+
+
 /**
  * Head export to define metadata for the page
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="Home" />
+export const Head = () => <Seo title="Home" />;
 
-export default IndexPage
+export default IndexPage;

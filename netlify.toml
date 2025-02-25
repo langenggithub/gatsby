@@ -1,0 +1,9 @@
+[build]
+  functions = "netlify/functions"  # 指定 Netlify Functions 目錄
+  publish = "public"  # Gatsby 的輸出目錄
+  command = "gatsby build"  # Netlify 部署時執行 Gatsby Build
+
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
