@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 
 exports.handler = async () => {
   try {
-    const NETLIFY_API_TOKEN = process.env.nfp_bAFVyG7frvnzSF7BMHdZmMCNRET7GYtc0264; 
+    const NETLIFY_API_TOKEN = process.env.nfp_bAFVyG7frvnzSF7BMHdZmMCNRET7GYtc0264;
     const SITE_ID = process.env.47f4057c-ba48-4cc3-88df-688dfee1c895;
     const FORM_NAME = "contact-comments";
 
@@ -39,4 +39,5 @@ exports.handler = async () => {
     };
   }
 };
+
 
