@@ -129,7 +129,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function BlogPost({ comments }) {
+export function BlogPost({ comments }) {
   return (
     <div>
       <h1>文章標題</h1>
@@ -160,4 +160,5 @@ export default function BlogPost({ comments }) {
  */
 export const Head = () => <Seo title="Home" />;
 
-export IndexPage;
+
+export default IndexPage;
