@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 
 exports.handler = async () => {
-  const NETLIFY_API_TOKEN = process.env.nfp_ZSKNGTn2mm1oQFMf5GqrKU8ZDUgGfmL99241; // 你的 Netlify API Token
+  const NETLIFY_API_TOKEN = process.env.nfp_bAFVyG7frvnzSF7BMHdZmMCNRET7GYtc0264; // 你的 Netlify API Token
   const SITE_ID = process.env.47f4057c-ba48-4cc3-88df-688dfee1c895; // Netlify 網站 ID
   const FORM_NAME = "contact-comments"; // Netlify Forms 表單名稱
 
